@@ -1,1 +1,57 @@
-<p>registration works!</p>
+<p>{{ myid }}</p>
+<form [formGroup] = "myform" (ngSubmit)="onSubmit()">
+    <div class="row">
+        <div class="col text-center p-2 mb-3 bg-light">
+            <span class="fs-3">Register</span>
+        </div>
+    </div>
+    <!-- <div class="row">
+        <div class="col">
+            <label for="firstname" class="form-label">First Name</label>
+            <input type="text" class="form-control" id="firstname">
+        </div>
+        <div class="col">
+            <label for="lastname" class="form-label">Last Name</label>
+            <input type="text" class="form-control" id="lastname" formControlName="lastname">
+        </div> -->
+    <!-- </div> -->
+    <div class="register-info">
+    <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label for="firstname">FirstName</mat-label>
+        <input type="text" formControlName="firstname" matInput placeholder="Ex. Tiko">
+    </mat-form-field>
+    <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label for="lastname">LastName</mat-label>
+        <input type="text" formControlName="lastname" matInput placeholder="Ex. Khmaladze">
+    </mat-form-field>
+    <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label for="email">Email</mat-label>
+        <input type="text" formControlName="email" matInput placeholder="Ex. pat@example.com">
+    </mat-form-field>
+    <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label for="mobilenumber">Mobile Number</mat-label>
+        <input type="text" formControlName="mobilenumber" matInput placeholder="Ex. +995 ******">
+    </mat-form-field>
+    </div>
+    <div>
+        <mat-radio-group aria-label="Gender">
+            <p>Gender</p>
+            <mat-radio-button value="1">Male</mat-radio-button>
+            <mat-radio-button value="2">Female</mat-radio-button>
+          </mat-radio-group>
+    </div>
+    <div>
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label for="password">Password</mat-label>
+            <input type="text" formControlName="password" matInput placeholder="Ex. ****">
+        </mat-form-field>
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label for="repeatpassword">Repeat Password</mat-label>
+            <input type="text" formControlName="repeatpassword" matInput placeholder="Ex. ****">
+        </mat-form-field>
+    </div>
+    <div class="submit-register">
+        <button type="submit" mat-raised-button color="primary">Submit</button>
+    </div>
+</form>
+
