@@ -7,6 +7,11 @@ import { AfterViewChecked, AfterViewInit, Component, OnInit } from '@angular/cor
 })
 export class AppComponent implements OnInit, AfterViewInit, AfterViewChecked {
   title = 'DemoApp';
+ 
+ 
+  login() {
+
+  }
   constructor() {
     console.log('-');
   }
