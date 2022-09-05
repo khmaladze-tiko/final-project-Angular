@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import {MatCardModule} from '@angular/material/card';
 
 @Component({
@@ -8,17 +9,17 @@ import {MatCardModule} from '@angular/material/card';
  
 })
 export class LoginComponent implements OnInit {
-  // log_email:string;
-  // log_password:string;
-  // reg_email:string;
-  // reg_password:string;
-  // reg_confirm_password:string;
-  register() {
-
-  }
-  constructor() { }
-
-  ngOnInit(): void {
+  
+  form: FormGroup
+  constructor() { 
+    
   }
 
+  ngOnInit() {
+    this.form = new FormGroup( controls: {
+      email: new FormControl(formState: null, validatorOrOpts: [Validators.required, Validators.email])
+      password: new FormControl( formState:null, ValidatorOrOpts: [Validators.required, Validators.minLength(minLength: 6 )])
+    })
+  }
+  onSubmit()
 }
