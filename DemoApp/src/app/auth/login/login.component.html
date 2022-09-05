@@ -1,48 +1,56 @@
-<form
-  class="card"
-  [formGroup]="form"
-  (ngSubmit)="onSubmit()"
->
 <mat-card class="example-card">
-    <mat-card-header>
-      <mat-card-title>Welcome</mat-card-title>
-      <mat-card-subtitle>Angular</mat-card-subtitle>
-    </mat-card-header>
-    
-    <mat-card-content>
-        <mat-tab-group>
-            <mat-tab label="Login"> 
-                <div class="login-input">
-                <mat-form-field class="example-full-width" appearance="fill">
-                    <mat-label for="email">Email</mat-label>
-                    <input formControlName="email" type="email" matInput placeholder="Email" >
-                  </mat-form-field>
-                </div>
-                <div>
-                  <mat-form-field class="example-full-width" appearance="fill">
-                    <mat-label for="password">Password</mat-label>
-                    <input formControlName="password" type="password" matInput placeholder="Password" >
-                  </mat-form-field>
-                  <button class="mat-button" mat-button color="primary" type="submit" [disabled]="form.invalid">Login</button>
-                </div>    
-            </mat-tab>
-            <mat-tab label="Register">
-              <mat-form-field class="example-full-width" appearance="fill">
-                <mat-label>Email</mat-label>
-                <input type="email" matInput placeholder="Email" >
-              </mat-form-field>
-              <mat-form-field class="example-full-width" appearance="fill">
-                <mat-label>Password</mat-label>
-                <input type="password" matInput placeholder="Password" >
-              </mat-form-field>
-              <mat-form-field class="example-full-width" appearance="fill">
-                <mat-label>Confirm Password</mat-label>
-                <input type="password" matInput placeholder="Confirm Password" >
-              </mat-form-field>
-              <button class="mat-button" mat-button color="primary" >Register</button>
-            </mat-tab>
-          </mat-tab-group>
-    </mat-card-content>
-  </mat-card>
-  </form>
- 
+  <mat-card-header>
+    <mat-card-title>Welcome</mat-card-title>
+    <mat-card-subtitle>Angular</mat-card-subtitle>
+  </mat-card-header>
+
+  <mat-card-content>
+    <mat-tab-group>
+      <mat-tab label="Login">
+        <form class="card" [formGroup]="form" (ngSubmit)="onSubmit()">
+          <div class="login-input">
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label for="email">Email</mat-label>
+              <input formControlName="email" type="email" matInput placeholder="Email">
+            </mat-form-field>
+          </div>
+          <div>
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label for="password">Password</mat-label>
+              <input formControlName="password" type="password" matInput placeholder="Password">
+              <mat-error *ngIf="form.get('password')?.errors?.['required']">This field is required</mat-error>
+              <mat-error *ngIf="form.get('password')?.errors?.['minlength']">Min length is 6</mat-error>
+            </mat-form-field>
+            <button class="mat-button" mat-button color="primary" type="submit" [disabled]="form.invalid">Login</button>
+          </div>
+        </form>
+      </mat-tab>
+      <mat-tab label="Register">
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Email</mat-label>
+          <input type="email" matInput placeholder="Email">
+        </mat-form-field>
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Password</mat-label>
+          <input type="password" matInput placeholder="Password">
+        </mat-form-field>
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Confirm Password</mat-label>
+          <input type="password" matInput placeholder="Confirm Password">
+        </mat-form-field>
+        <button class="mat-button" mat-button color="primary">Register</button>
+      </mat-tab>
+    </mat-tab-group>
+  </mat-card-content>
+</mat-card>
+
+<!-- <div class="nav__login">
+    <form [formGroup]="form" (submit)="onSubmit()">
+      <input type="text" class="nav__login--input" id="login-username" placeholder="Username" formControlName="email"
+        required>
+      <input type="password" class="nav__login--input" id="login-password" placeholder="Password" formControlName="password"
+        required>
+      <button class="nav__login--btn login-submit" mat-stroked-button>LOGIN</button>
+    </form>
+    <button class="nav__login--btn-raised" mat-raised-button color="primary" (click)="openSignUp()">SIGN UP</button>
+  </div> -->
